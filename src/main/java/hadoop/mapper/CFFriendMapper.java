@@ -10,7 +10,8 @@ import org.apache.hadoop.mapreduce.Mapper;
 public class CFFriendMapper extends Mapper <LongWritable, Text, Text, Text> {
 
 	public void map(LongWritable key,Text value, Context context) throws IOException, InterruptedException {
-		
+	
+		//ADD COMMENTS HERE.....
 		String line = value.toString();
 		StringTokenizer st = new StringTokenizer(line,":");
 		String ckey = st.nextToken();
