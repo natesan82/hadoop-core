@@ -15,11 +15,9 @@ public class CFFriendReducer extends Reducer <Text, Text, Text, Text> {
 	public void reduce(Text key, Iterable<Text> value, Context context) throws IOException, InterruptedException {
 		
 		List<Text> list = new ArrayList<Text>();
-		System.out.println("XXXXXXXXXXXXX");
 		for(Text val:value){
 			list.add(new Text(val));
 		}
-		System.out.println("YYYYYYYYYYYY");
 		Set<String> ss = new HashSet<String>();
 		Text A = list.get(0);
 		StringTokenizer st = new StringTokenizer(A.toString(),",");
@@ -35,12 +33,8 @@ public class CFFriendReducer extends Reducer <Text, Text, Text, Text> {
 			String b = st1.nextToken();
 			ss1.add(b);
 		}
-		
-		System.out.println("ZZZZZZZZZZZZZZ");
 		ss.retainAll(ss1);
-		System.out.println("--------------");
-		context.write(key, new Text(ss.toString()));
 		
+		context.write(key, new Text(ss.toString()));	
 				}
-
 }
